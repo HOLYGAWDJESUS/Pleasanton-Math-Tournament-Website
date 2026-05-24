@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Custom Theme Colors */
+  --color-primary: #006398;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #64b5f6;
+  --color-on-primary-container: #00456c;
+  --color-inverse-primary: #94ccff;
+  --color-primary-fixed: #cde5ff;
+  --color-primary-fixed-dim: #94ccff;
+
+  --color-secondary: #286b33;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #abf4ac;
+  --color-on-secondary-container: #2e7238;
+  --color-secondary-fixed: #abf4ac;
+  --color-secondary-fixed-dim: #90d792;
+
+  --color-tertiary: #a03e40;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #ff8e8d;
+  --color-on-tertiary-container: #7a2226;
+  --color-tertiary-fixed: #ffdad8;
+  --color-tertiary-fixed-dim: #ffb3b1;
+
+  --color-surface: #121212; /* Dark theme base */
+  --color-on-surface: #e0e2e8;
+  --color-surface-variant: #e0e2e8;
+  --color-on-surface-variant: #404850;
+  --color-outline: #707881;
+  --color-outline-variant: #c0c7d1;
+  
+  /* Grid & Scrollbar */
+  --color-grid: rgba(255, 255, 255, 0.05);
+  --color-grid-subtle: rgba(255, 255, 255, 0.03);
+  --color-scrollbar: #404850;
+  --color-scrollbar-hover: #707881;
+  
+  /* Glass, Panels, Nav */
+  --color-glass-panel: rgba(45, 49, 53, 0.6);
+  --color-glass-panel-hover: rgba(45, 49, 53, 0.8);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-nav-bg: rgba(0, 0, 0, 0.6);
+  --color-nav-border: rgba(255, 255, 255, 0.1);
+  
+  --color-overlay-hover: rgba(255, 255, 255, 0.05);
+  --color-overlay-active: rgba(255, 255, 255, 0.1);
+  
+  --color-toggle-bg: rgba(255, 255, 255, 0.05);
+  --color-toggle-border: rgba(255, 255, 255, 0.1);
+  
+  --color-slider-track: rgba(255, 255, 255, 0.2);
+}
+
+:root.light {
+  /* 1. Primary Colors - Blues */
+  --color-primary: #006398;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #cde5ff;
+  --color-on-primary-container: #00456c;
+  --color-inverse-primary: #94ccff;
+  --color-primary-fixed: #cde5ff;
+  --color-primary-fixed-dim: #00456c; /* changed to dark for headings */
+
+  /* 2. Secondary Colors - Greens */
+  --color-secondary: #286b33;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #d4f8cf;
+  --color-on-secondary-container: #1f5428;
+  --color-secondary-fixed: #abf4ac;
+  --color-secondary-fixed-dim: #1f5428;
+
+  /* 3. Tertiary Colors - Reds / Pinks */
+  --color-tertiary: #a03e40;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #ffdad8;
+  --color-on-tertiary-container: #7a2226;
+  --color-tertiary-fixed: #ffdad8;
+  --color-tertiary-fixed-dim: #7a2226;
+
+  /* 4. Background, Surface, and Text Colors */
+  --color-background: #ece8dd;          /* warm paper background */
+  --color-surface: #ece8dd;             /* main page background */
+  --color-surface-container: #f6f1e7;   /* cards / sections */
+  --color-surface-container-high: #fffaf0;
+  --color-on-surface: #111418;          /* primary text, very dark */
+  --color-surface-variant: #2d3748;     /* secondary text color (mapped from dark mode usage), darker now */
+  --color-on-surface-variant: #2d3748;  
+  --color-outline: #4a5568;
+  --color-outline-variant: #4a5568;     /* text color (mapped from dark mode usage), darker now */
+  
+  /* Grid & Scrollbar */
+  --color-grid: rgba(0, 0, 0, 0.045);
+  --color-grid-subtle: rgba(0, 0, 0, 0.025);
+  --color-scrollbar: #b8afa1;
+  --color-scrollbar-hover: #8d8578;
+  
+  /* Glass, Panels, Nav */
+  --color-glass-panel: rgba(255, 250, 240, 0.65);
+  --color-glass-panel-hover: rgba(255, 250, 240, 0.85);
+  --color-glass-border: rgba(0, 0, 0, 0.08);
+  --color-nav-bg: rgba(255, 250, 240, 0.85);
+  --color-nav-border: rgba(0, 0, 0, 0.08);
+  
+  --color-overlay-hover: rgba(0, 0, 0, 0.03);
+  --color-overlay-active: rgba(0, 0, 0, 0.06);
+  
+  --color-toggle-bg: rgba(0, 0, 0, 0.03);
+  --color-toggle-border: rgba(0, 0, 0, 0.08);
+  
+  --color-slider-track: rgba(0, 0, 0, 0.1);
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased min-h-screen flex flex-col;
+    background-image: 
+        radial-gradient(circle at 1px 1px, var(--color-grid) 1px, transparent 0),
+        linear-gradient(to right, var(--color-grid-subtle) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--color-grid-subtle) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    background-color: var(--color-glass-panel);
+    border-color: var(--color-glass-border);
+    @apply backdrop-blur-[12px] border relative;
+  }
+  
+  .glass-card-hover {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  .glass-card-hover:hover {
+    background-color: var(--color-glass-panel-hover);
+    @apply border-[rgba(148,204,255,0.3)] -translate-y-[2px] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)];
+  }
+  .light .glass-card-hover:hover {
+    background-color: var(--color-glass-panel-hover);
+    @apply border-[rgba(0,99,152,0.3)] -translate-y-[2px] shadow-[0_10px_30px_-10px_rgba(74,65,49,0.18)];
+  }
+}
+
+/* Utility Overrides for Light Mode */
+:root.light .text-white { color: var(--color-on-surface); }
+:root.light .text-white\/70 { color: var(--color-on-surface-variant); }
+:root.light .text-white\/50 { color: var(--color-outline-variant); }
+
+:root.light .bg-white\/5 { background-color: rgba(0, 0, 0, 0.03); }
+:root.light .bg-white\/10 { background-color: rgba(0, 0, 0, 0.06); }
+:root.light .bg-white\/20 { background-color: rgba(0, 0, 0, 0.1); }
+:root.light .bg-black\/50 { background-color: rgba(255, 255, 255, 0.5); }
+:root.light .bg-black\/40 { background-color: rgba(255, 255, 255, 0.4); }
+
+:root.light .border-white\/10 { border-color: rgba(0, 0, 0, 0.08); }
+:root.light .border-white\/5 { border-color: rgba(0, 0, 0, 0.04); }
+
+:root.light .divide-white\/5 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(0, 0, 0, 0.04);
+}
+
+:root.light .hover\:bg-white\/10:hover { background-color: rgba(0, 0, 0, 0.06); }
+:root.light .hover\:bg-white\/5:hover { background-color: rgba(0, 0, 0, 0.03); }
+:root.light .hover\:text-white:hover { color: var(--color-on-surface); }
+:root.light .hover\:border-white\/10:hover { border-color: rgba(0, 0, 0, 0.08); }
+
+/* Pastel Accent Overrides for Light Mode */
+:root.light .text-blue-300 { color: #006398; }
+:root.light .text-red-300 { color: #a03e40; }
+:root.light .text-green-300 { color: #286b33; }
+:root.light .text-yellow-300 { color: #8a6500; }
+
+:root.light .group:hover .group-hover\:border-blue-300 { border-color: rgba(0, 99, 152, 0.8); }
+:root.light .hover\:border-blue-300\/50:hover { border-color: rgba(0, 99, 152, 0.5); }
+:root.light .border-blue-300\/30 { border-color: rgba(0, 99, 152, 0.3); }
+
+:root.light .group:hover .group-hover\:border-red-300 { border-color: rgba(160, 62, 64, 0.8); }
+:root.light .hover\:border-red-300\/50:hover { border-color: rgba(160, 62, 64, 0.5); }
+:root.light .border-red-300\/30 { border-color: rgba(160, 62, 64, 0.3); }
+
+:root.light .group:hover .group-hover\:border-green-300 { border-color: rgba(40, 107, 51, 0.8); }
+:root.light .hover\:border-green-300\/50:hover { border-color: rgba(40, 107, 51, 0.5); }
+:root.light .border-green-300\/30 { border-color: rgba(40, 107, 51, 0.3); }
+
+:root.light .group:hover .group-hover\:border-yellow-300 { border-color: rgba(138, 101, 0, 0.8); }
+:root.light .hover\:border-yellow-300\/50:hover { border-color: rgba(138, 101, 0, 0.5); }
+:root.light .border-yellow-300\/30 { border-color: rgba(138, 101, 0, 0.3); }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-scrollbar); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-scrollbar-hover); }
+
+/* Thin Slider Thumbs */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: currentColor;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  background: currentColor;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
