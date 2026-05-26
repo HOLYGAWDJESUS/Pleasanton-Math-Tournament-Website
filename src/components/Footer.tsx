@@ -7,7 +7,7 @@ const footerLinks = [
   { name: 'FAQ', path: '/#faq' },
   { name: 'Problems', path: '/problems' },
   { name: 'Results', path: '/results' },
-  { name: 'Contact', path: '/#contact' },
+  { name: 'Contact', path: 'mailto:hartmathcounts1@gmail.com' },
 ];
 
 export function Footer() {
@@ -23,7 +23,7 @@ export function Footer() {
               hartmathcounts1@gmail.com
             </span>
           </div>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-surface-variant hover:text-white transition-colors group" aria-label="GitHub">
+          <a href="https://github.com/HOLYGAWDJESUS/Pleasanton-Math-Tournament-Website" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-surface-variant hover:text-white transition-colors group" aria-label="GitHub">
             <Github className="w-5 h-5 group-hover:scale-110 transition-transform" />
             <span className="font-mono text-sm">View on GitHub</span>
           </a>
@@ -31,13 +31,23 @@ export function Footer() {
         <div className="flex flex-col items-center md:items-end gap-8 mt-2 md:mt-0">
           <div className="flex flex-wrap justify-center md:justify-end gap-6 text-sm">
             {footerLinks.map((link) => (
-              <NavLink
-                key={link.name}
-                to={link.path}
-                className="font-sans font-medium text-surface-variant hover:text-white transition-colors hover:underline"
-              >
-                {link.name}
-              </NavLink>
+              link.path.startsWith('mailto:') ? (
+                <a
+                  key={link.name}
+                  href={link.path}
+                  className="font-sans font-medium text-surface-variant hover:text-white transition-colors hover:underline"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <NavLink
+                  key={link.name}
+                  to={link.path}
+                  className="font-sans font-medium text-surface-variant hover:text-white transition-colors hover:underline"
+                >
+                  {link.name}
+                </NavLink>
+              )
             ))}
           </div>
           <div className="flex flex-col items-center md:items-end gap-1.5 text-xs text-surface-variant/60 font-mono text-center md:text-right">
