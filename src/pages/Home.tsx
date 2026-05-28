@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FadeInSection } from '../components/FadeInSection';
@@ -105,7 +107,7 @@ export function Home() {
         <FourierWidget className="w-full max-w-[60rem] h-[250px] md:h-[350px] mb-0 md:-mt-8" />
         
         <h1 className="font-sans font-bold text-[1.8rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] tracking-tight whitespace-nowrap text-inverse-primary mb-4 max-w-none drop-shadow-lg">
-          Pleasanton <span className="text-red-300">Math</span> <span className="text-green-300">Tournament</span>
+          Pleasanton <span className="text-red-300">Math</span> <span className="text-green-300 relative inline-block"><span className="relative z-10">Tournament</span><img src="/mascot.png" alt="Mathematical Husky" className="absolute bottom-[50%] md:bottom-[55%] left-[92%] w-24 md:w-36 h-auto pointer-events-none drop-shadow-md z-0 object-contain" style={{ transform: 'translate(-50%, 32%)' }} /></span>
         </h1>
         <p className="font-sans text-lg text-surface-variant max-w-2xl mb-8">
           A welcoming, challenging math competition for students in 8th grade and below.
