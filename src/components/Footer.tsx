@@ -53,6 +53,7 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-end gap-1.5 text-xs text-surface-variant/60 font-mono text-center md:text-right">
             <span>&copy; {new Date().getFullYear()} Pleasanton Math Tournament. All rights reserved.</span>
             <span>Made with ❤️ by Shulin Lu</span>
+            <span>Art by Yunyao Zhu</span>
           </div>
         </div>
       </div>
